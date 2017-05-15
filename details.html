@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello world!</title>
+	<!-- zui -->
+	<link href="css/zui.css" rel="stylesheet">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+
+		}
+		body{
+			margin:0 80px;
+			background-color: ;
+			position: relative;
+
+		}
+		.logo{
+			
+			left:8%;
+			top: 4%;
+			color:orange;
+			font-size: 4rem;
+			float: left;
+			text-shadow: 2px 2px 5px #ccc;
+		}
+		.search{
+			text-align: center;
+			margin:50px;
+			margin-left: -50px;
+			width: 100%;	
+			position: relative;
+		}
+		.search input{
+			width: 300px;
+			height: 40px;
+			border:1px solid #ccc;
+			padding:10px;
+			border-radius: 4px;
+		}
+		.search a{
+			display: inline-block;
+			width: 50px;
+			height: 41px;
+			background-color: orange;
+			line-height: 40px;
+			color:white;
+			border-radius: 4px;
+		}
+		.content{
+			width: 900px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.img{
+			float: left;
+			width:500px;
+			margin-right: 20px;
+		}
+		.img img{
+			border-radius: 4px;
+		}
+		table{
+			float: left;
+			
+			
+		}
+		table td{
+			border-bottom: 1px solid #ccc;
+			font-size: 2rem;
+			padding:10px 70px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar" role="navigation">
+		<div class="container-fluid">
+			<!-- 导航头部 -->
+			<div class="navbar-header">
+				
+			</div>
+			<!-- 导航项目 -->
+			<div class="collapse navbar-collapse navbar-collapse-example">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">成都</a></li>
+					<!-- 导航中的下拉菜单 -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">切换城市 <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">北京</a></li>
+							<li><a href="#">上海</a></li>
+							<li><a href="#">深圳</a></li>
+							<li class="divider"></li>
+							<li><a href="#">广州</a></li>
+							<li><a href="#">更多>></a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- 右侧的导航项目 -->
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="your/nice/url">关注</a></li>
+					<li><a href="your/nice/url">收藏</a></li>
+					<li><a href="your/nice/url">帮助</a></li>
+					<li class="dropdown">
+						<a href="your/nice/url" class="dropdown-toggle" data-toggle="dropdown">探索 <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="your/nice/url">敏捷开发</a></li>
+							<li><a href="your/nice/url">HTML5</a></li>
+							<li><a href="your/nice/url">Javascript</a></li>
+							<li class="divider"></li>
+							<li><a href="your/nice/url">探索宇宙</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- END .navbar-collapse -->
+		</div>
+	</nav>
+
+	<h1 class="logo">FOODSLAVES</h1>
+	<div class="search">
+		<input type="search" name="" placeholder="搜索...">
+		<a href="#">搜索</a>
+	</div>
+	<ol class="breadcrumb">
+		<li><a href="welcomePage.html">欢迎</a></li>
+		<li><a href="index.thml">首页</a></li>
+		<li><a href="#">详情页</a></li>
+	</ol>
+	<hr>
+	
+	<section class="content">
+		<div class="img">
+			<img src="imgs/timg.jpg" alt="show picture">
+		</div>
+		<div class="material">
+			<h1>蛋炒饭</h1>
+			<table>
+				<tr>
+					<td>黄油</td>
+					<td>200g</td>
+				</tr>
+				<tr>
+					<td>奶酪</td>
+					<td>200g</td>
+				</tr>
+				<tr>
+					<td>糖</td>
+					<td>200g</td>
+				</tr>
+				<tr>
+					<td>盐</td>
+					<td>200g</td>
+				</tr>
+				<tr>
+					<td>味精</td>
+					<td>200g</td>
+				</tr>
+			</table>
+		</div>
+		
+	</section>
+	<!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<!-- ZUI Javascript组件 -->
+	<script src="js/zui.min.js"></script>
+</body>
+</html>

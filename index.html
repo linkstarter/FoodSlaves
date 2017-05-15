@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello world!</title>
+	<!-- zui -->
+	<link href="css/zui.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0"/>
+	<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+	 <link rel="stylesheet" href="http://cache.amap.com/lbs/static/AMap.DrivingRender1120.css"/>
+     <script type="text/javascript"
+            src="http://webapi.amap.com/maps?v=1.3&key=5518cb44351f70224f9b36908ae7e382&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
+            <script type="text/javascript" src="http://cache.amap.com/lbs/static/DrivingRender1230.js"></script>
+            <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+
+		}
+		body{
+			margin:0 80px;
+			background-color: ;
+			position: relative;
+			width: 90%;
+
+		}
+
+		.logo{
+			
+			left:8%;
+			top: 4%;
+			color:orange;
+			font-size: 4rem;
+			float: left;
+			text-shadow: 2px 2px 5px #ccc;
+		}
+		.search{
+			text-align: center;
+			margin:50px;
+			margin-left: -50px;
+			width: 100%;	
+			position: relative;
+
+		}
+		.search input{
+			width: 300px;
+			height: 40px;
+			border:1px solid #ccc;
+			padding:10px;
+			border-radius: 4px;
+		}
+		.search a{
+			display: inline-block;
+			width: 50px;
+			height: 41px;
+			background-color: orange;
+			line-height: 40px;
+			color:white;
+			border-radius: 4px;
+		}
+		#weather{
+			float: right;
+		}
+		#weather ul li{
+			
+			list-style: none;
+		}
+		.carousel-inner{
+			height: 260px;
+		}
+		.navbar-nav>li{
+			border-bottom: 1px solid #ccc;
+			margin-left: 10px;
+		}
+		.items{
+			margin-left: 30px;
+			margin-top: 30px;
+			padding:0;
+			text-align: center;
+			border:1px solid #ccc;
+			border-radius: 4px;
+			box-shadow: 5px 5px 5px #ccc;
+			transition: all .5s ease;
+
+		}
+		.items:hover{
+			box-shadow: 6px 6px 6px pink;
+		}
+		.item{
+			text-align: center;
+		}
+		.items img{
+			width: 100%;
+		}
+		.items h1{
+			font-size: 1.8rem;
+		}
+		.items span{
+			color:#bbb;
+		}
+		footer{
+			text-align: center;
+			margin-top: 90px;
+		}
+		#returnTop{
+			margin-left: 50px;
+		}
+		.pager{
+			margin-top: 200px;
+		}
+		.map-area{
+			width: 100%;
+			text-align: center;
+			padding-bottom: 10px;
+			padding-right: 20px;
+			height: 520px;
+			position: relative;
+		}
+		#map{
+			margin: 10px auto;
+			width: 90%;
+			height: 500px;
+			
+
+		}
+		#panel {
+            position: absolute;
+            background-color: white;
+            max-height: 100%;
+            overflow-y: auto;
+            top: 60px;
+            right: 10px;
+            width: 280px;
+            z-index: 100;
+        }
+        #path-search{
+        	display: inline-block;
+        	background-color: orange;
+        	color:white;
+        	width:50px;
+        	height: 30px;
+        	border-radius: 4px;
+        	line-height: 30px;
+        	cursor: pointer;
+        }
+	</style>
+</head>
+<body>
+
+	<nav class="navbar" role="navigation">
+		<div class="container-fluid">
+			<!-- 导航头部 -->
+			<div class="navbar-header">
+				
+			</div>
+			<!-- 导航项目 -->
+			<div class="collapse navbar-collapse navbar-collapse-example">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" id="local-city">	</a></li>
+					<!-- 导航中的下拉菜单 -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">切换城市 <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">北京</a></li>
+							<li><a href="#">上海</a></li>
+							<li><a href="#">深圳</a></li>
+							<li class="divider"></li>
+							<li><a href="#">广州</a></li>
+							<li><a href="#">更多>></a></li>
+						</ul>
+					</li>
+
+				</ul>
+				<!-- 右侧的导航项目 -->
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Hi,星空下的橡皮人</a></li>
+					<li><a href="#">最近浏览</a></li>
+					<li><a href="#">关注</a></li>
+					<li><a href="#">收藏</a></li>
+					<li><a href="#">帮助</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">探索 <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">失传菜谱</a></li>
+							<li><a href="#">御膳房</a></li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div><!-- END .navbar-collapse -->
+		</div>
+	</nav>
+
+	<h1 class="logo">FOODSLAVES</h1>
+	<div class="search">
+		<input type="search" name="" placeholder="搜索..." id="tipinput">
+		<a href="#" id="search-btn">搜索</a>
+	</div>
+	<div id="weather"></div>
+
+	<ol class="breadcrumb">
+		<li><a href="welcomePage.html">欢迎</a></li>
+		<li><a href="#">首页</a></li>
+	</ol>
+	<hr>
+	
+
+
+
+	<div class="row">
+		<div class="col-xs-3">
+			<ul class="nav nav-tabs nav-stacked">
+				<li class="active"><a href="###" data-target="#tab3Content1" data-toggle="tab">中华料理</a></li>
+				<li><a href="###" data-target="#tab3Content2" data-toggle="tab">外国料理</a></li>
+				<li><a href="###" data-target="#tab3Content3" data-toggle="tab">健康饮食</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-9">
+			<div class="tab-content col-xs-9">
+				<div class="tab-pane fade active in" id="tab3Content1">
+					<label>中华菜系</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">川菜</a></li>
+						<li><a href="#">粤菜</a></li>
+						<li><a href="#">湘菜</a></li>
+						<li><a href="#">东北菜</a></li>
+						<li><a href="#">鲁菜</a></li>
+						<li><a href="#">清真菜</a></li>
+						<li><a href="#">湖北菜</a></li>
+						<li><a href="#">浙菜</a></li>
+					</ul>
+					<label>家常菜谱</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">家常菜</a></li>
+						<li><a href="#">凉菜</a></li>
+						<li><a href="#">素食</a></li>
+						<li><a href="#">晚餐</a></li>
+						<li><a href="#">私家菜</a></li>
+						<li><a href="#">热菜</a></li>
+						<li><a href="#">海鲜</a></li>
+						<li><a href="#">早餐</a></li>
+						<li><a href="#">晚餐</a></li>
+						<li><a href="#">午餐</a></li>
+					</ul>
+					<label>各地小吃</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">四川小吃</a></li>
+						<li><a href="#">广东小吃</a></li>
+						<li><a href="#">北京小吃</a></li>
+						<li><a href="#">陕西小吃</a></li>
+						<li><a href="#">沙县小吃</a></li>
+					</ul>
+
+				</div>
+				<div class="tab-pane fade" id="tab3Content2">
+					<label>中华菜系</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">川菜</a></li>
+						<li><a href="#">粤菜</a></li>
+						<li><a href="#">湘菜</a></li>
+						<li><a href="#">东北菜</a></li>
+						<li><a href="#">鲁菜</a></li>
+						<li><a href="#">清真菜</a></li>
+					</ul>
+					<label>外国菜系</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">韩国料理</a></li>
+						<li><a href="#">日本料理</a></li>
+						<li><a href="#">法国料理</a></li>
+						<li><a href="#">意大利餐</a></li>
+					</ul>
+					<label>各地小吃</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">四川小吃</a></li>
+						<li><a href="#">广东小吃</a></li>
+						<li><a href="#">北京小吃</a></li>
+						<li><a href="#">陕西小吃</a></li>
+					</ul>
+				</div>
+				<div class="tab-pane fade" id="tab3Content3">
+					<label>饮食健康</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">饮食小常识</a></li>
+						<li><a href="#">美容瘦身</a></li>
+						<li><a href="#">食谱安全</a></li>
+						<li><a href="#">养生妙方</a></li>
+						<li><a href="#">饮食禁忌</a></li>
+						<li><a href="#">中医保健</a></li>
+					</ul>
+					<label>功能性调理</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">清热去火</a></li>
+						<li><a href="#">减肥</a></li>
+						<li><a href="#">祛痰</a></li>
+						<li><a href="#">乌发</a></li>
+						<li><a href="#">滋阴补肾</a></li>
+						<li><a href="#">健脾开胃</a></li>
+					</ul>
+					<label>疾病调理</label>
+					<ul class="nav nav-secondary">
+						<li><a href="#">糖尿病</a></li>
+						<li><a href="#">高血压</a></li>
+						<li><a href="#">通风</a></li>
+						<li><a href="#">胃炎</a></li>
+						<li><a href="#">痔疮</a></li>
+						<li><a href="#">更年期</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<hr>
+	
+	<section class="item">
+		<h1>热门推荐</h1>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2 items"><img src="imgs/cqxm.jpg">
+					<h1>宫保鸡丁</h1>
+					<p><span>评分：9.0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>难度系数：5</span></p>
+
+				</div>
+				<div class="col-md-2 items"><img src="imgs/cwjs.jpg">
+					<h1>蛋炒饭</h1>
+					<p><span>评分：9.0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>难度系数：5</span></p>
+				</div>
+				<div class="col-md-2 items"><img src="imgs/hgr.jpg">
+					<h1>青椒肉丝</h1>
+					<p><span>评分：9.0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>难度系数：5</span></p>
+				</div>
+				<div class="col-md-2 items"><img src="imgs/hsye.jpg">
+					<h1>白菜炒肉</h1>
+					<p><span>评分：9.0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>难度系数：5</span></p>
+				</div>
+				<div class="col-md-2 items"><img src="imgs/yxrs.jpg">
+					<h1>回锅肉</h1>
+					<p><span>评分：9.0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>难度系数：5</span></p>
+				</div>
+				<div class="col-md-2 items"><img src="imgs/timg.jpg">
+					<h1>重庆小面</h1>
+					<p><span>评分：9.0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>难度系数：5</span></p>
+				</div>
+			</div>
+		</div>
+		<!-- 地图 -->
+		<hr>
+		<section class="map-area">
+		<h1>地图搜索</h1>
+		<div id="panel"></div>
+			<label>起始位置：</label>
+			<input type="text" name="" id="begin-position">
+			<label>终点</label>
+			<input type="text" name="" id="end-position">
+			<span id="path-search">查询</span>
+			<div id="map"></div>
+		</section>
+	</section>
+	
+	<footer>
+	<hr>
+		<span>Copyright©foodslaves</span>
+		<span id="returnTop">返回顶部</span>
+	</footer>
+
+
+	<!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<!-- ZUI Javascript组件 -->
+	<script src="js/zui.min.js"></script>
+	<script type="text/javascript">
+		$("#returnTop").click(function () {
+        var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;
+    });
+
+
+			//地图设置
+		var mapArea = $('.map-area');
+		var weatherInfo = $('#weather');
+		var tipinput = $('#tipinput');
+		var searchBtn = document.getElementById('search-btn');
+		var localCity = document.getElementById('local-city');
+
+		
+		var map = new AMap.Map("map", {
+        resizeEnable: true,
+        zoom: 12 //地图显示的缩放级别
+    	});
+		//获取当地城市
+		map.getCity(function(e){
+			localCity.innerHTML = e.city;
+		});
+
+		AMap.service('AMap.Weather',function(){
+			var weather = new AMap.Weather();
+			weather.getLive('成都市',function(err,data){
+				if(!err){
+					var str = [];
+					str.push('<span>城市/区：' + data.city + '</span>');
+					str.push('<span>天气：' + data.weather + '</span>');
+					str.push('<span>温度：' + data.temperature + '℃</span>');
+					str.push('<span>空气湿度：' + data.humidity + '</span>');
+					weatherInfo.append(str);
+				}
+			});
+		});
+		
+		searchBtn.onclick = function(){
+			AMap.service(["AMap.PlaceSearch"], function() {
+       		 var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
+       		 	pageSize: 5,
+       		 	pageIndex: 1,
+           	 	map: map,
+           	 	city: '028',
+           	 	panel: "panel"
+           	});
+        //关键字查询
+        placeSearch.search(tipinput.val());
+    });
+		}
+		
+
+
+
+
+		//输入提示
+    var autoOptions = {
+        input: "tipinput"
+    };
+    var auto = new AMap.Autocomplete(autoOptions);
+    var placeSearch = new AMap.PlaceSearch({
+        map: map
+    });  //构造地点查询类
+    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+    function select(e) {
+        placeSearch.setCity(e.poi.adcode);
+        placeSearch.search(e.poi.name);  //关键字查询查询
+    }
+		 
+
+    var pathSearch = document.getElementById('path-search');
+    var beginPosition = $('#begin-position');
+    var endPosition = $('#end-position');
+    pathSearch.onclick = function(){
+
+	  //驾车导航，您如果想修改结果展现效果，请参考页面：http://lbs.amap.com/fn/css-style/
+	  AMap.plugin('AMap.Driving',function(){//异步
+
+    	//构造路线导航类
+    	var driving = new AMap.Driving({
+    		map: map,
+    		panel: "panel"
+    	}); 
+    // 根据起终点名称规划驾车导航路线
+    driving.search([
+    	{keyword: beginPosition.val(),city:'成都市'},
+    	{keyword: endPosition.val(),city:'成都市'}
+    	]);
+
+});
+	}
+
+</script>
+</body>
+</html>
