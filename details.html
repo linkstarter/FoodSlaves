@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello world!</title>
+	<title>详情页</title>
 	<!-- zui -->
 	<link href="css/zui.css" rel="stylesheet">
 	<style type="text/css">
@@ -66,13 +66,49 @@
 		}
 		table{
 			float: left;
-			
-			
+				
 		}
 		table td{
 			border-bottom: 1px solid #ccc;
 			font-size: 2rem;
 			padding:10px 70px;
+		}
+		.method-title{
+			top: 50px;
+			clear:both;
+			display: block;
+			position: relative;
+		}
+		.step{
+			width: 100%;
+			height: 600px;
+			clear: both;
+			position: relative;
+		}
+		.step h3{
+			position: absolute;
+			border-bottom: 1px solid #ccc;
+			width: 250px;
+			font-size: 3rem;
+			color:#e8e8e8;
+			
+		}
+		.step h3 span{
+			color:#59b84b;
+			font-size:4rem;
+		}
+		.step img{
+			position: absolute;
+			right: 20px;
+			top:100px;
+		}
+		.step p{
+			width: 250px;
+			position: absolute;
+			top:130px;
+		}
+		.step1{
+			padding-top: 50px;
 		}
 	</style>
 </head>
@@ -127,17 +163,17 @@
 	</div>
 	<ol class="breadcrumb">
 		<li><a href="welcomePage.html">欢迎</a></li>
-		<li><a href="index.thml">首页</a></li>
+		<li><a href="index.html">首页</a></li>
 		<li><a href="#">详情页</a></li>
 	</ol>
 	<hr>
 	
 	<section class="content">
 		<div class="img">
-			<img src="imgs/timg.jpg" alt="show picture">
+			<img src="imgs/result.jpg" alt="show picture">
 		</div>
 		<div class="material">
-			<h1>蛋炒饭</h1>
+			<h1>北非蛋</h1>
 			<table>
 				<tr>
 					<td>黄油</td>
@@ -161,11 +197,64 @@
 				</tr>
 			</table>
 		</div>
+		<h1 class="method-title">北非蛋的做法</h1>
+		<div class="step1 step">
+			<h3><span>1</span>/9</h3>
+			<p>材料备好，喜欢吃微酸的口味就备一个西红柿，不喜欢可以不放</p>
+			<img src="imgs/step1.jpg">
+		</div>
+		<div class="step2 step">
+			<h3><span>2</span>/9</h3>
+			<p>把洋葱和彩椒切成碎丁，放西红柿的话也把西红柿一起切丁</p>
+			<img src="imgs/step2.jpg">
+		</div>
+		<div class="step3 step">
+			<h3><span>3</span>/9</h3>
+			<p>两片芝士片切成小方块</p>
+			<img src="imgs/step3.jpg">
+		</div>
+		<div class="step4 step">
+			<h3><span>4</span>/9</h3>
+			<p>在放西红柿丁，加盐和胡椒粉炒出香味。</p>
+			<img src="imgs/step4.jpg">
+		</div>
+		<div class="step5 step">
+			<h3><span>5</span>/9</h3>
+			<p>打入鸡蛋，转小火，不要翻动</p>
+			<img src="imgs/step5.jpg">
+		</div>
+		<div class="step6 step">
+			<h3><span>6</span>/9</h3>
+			<p>打入鸡蛋，转小火，不要翻动</p>
+			<img src="imgs/step6.jpg">
+		</div>
+		<div class="step7 step">
+			<h3><span>7</span>/9</h3>
+			<p>看鸡蛋清凝固成白色，放入芝士片</p>
+			<img src="imgs/step7.jpg">
+		</div>
+		<div class="step8 step">
+			<h3><span>8</span>/9</h3>
+			<p>看芝士片变软微化，在把香菜直接手撕撒上，也可以在撒点黑胡椒粉就ok了。</p>
+			<img src="imgs/step8.jpg">
+		</div>
+		<div class="step9 step">
+			<h3><span>9</span>/9</h3>
+			<p>开始享用美食吧！</p>
+			<img src="imgs/result.jpg">
+		</div>
 		
 	</section>
+
+
+
+
+
 	<!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<!-- ZUI Javascript组件 -->
 	<script src="js/zui.min.js"></script>
+	
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"right","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 </body>
 </html>

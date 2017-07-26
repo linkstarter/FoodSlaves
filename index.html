@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello world!</title>
+	<title>首页</title>
 	<!-- zui -->
 	<link href="css/zui.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0"/>
@@ -36,6 +36,7 @@
 			font-size: 4rem;
 			float: left;
 			text-shadow: 2px 2px 5px #ccc;
+			animation: logolight 2s linear infinite;
 		}
 		.search{
 			text-align: center;
@@ -84,10 +85,9 @@
 			border-radius: 4px;
 			box-shadow: 5px 5px 5px #ccc;
 			transition: all .5s ease;
-
 		}
 		.items:hover{
-			box-shadow: 6px 6px 6px pink;
+			transform: rotate(30deg);
 		}
 		.item{
 			text-align: center;
@@ -145,6 +145,15 @@
         	border-radius: 4px;
         	line-height: 30px;
         	cursor: pointer;
+        }
+
+
+        @keyframes logolight{
+        	0% {color:orange; }
+        	25% {color:#a1b11f;}
+        	50% {color:#d0911d;}
+        	75% {color:#e89d11;}
+        	100%{color:orange;}
         }
 	</style>
 </head>
@@ -349,7 +358,7 @@
 		<!-- 地图 -->
 		<hr>
 		<section class="map-area">
-		<h1>地图搜索</h1>
+		<h1>寻找美食</h1>
 		<div id="panel"></div>
 			<label>起始位置：</label>
 			<input type="text" name="" id="begin-position">
@@ -464,7 +473,13 @@
 
 });
 	}
-
+	//页面跳转
+	var jumpPage = $('.items');
+	for(var i = 0; i < jumpPage.length; i++){
+		jumpPage[i].onclick = function(){
+			window.location.href = "details.html";
+		}
+	}
 </script>
 </body>
 </html>
